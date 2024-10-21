@@ -1,58 +1,58 @@
-# Drag and Drop RAG
+# Kéo và Thả RAG
 
-## Overview
+## Tổng quan
 
-![Application Screenshot](https://storage.googleapis.com/mle-courses-prod/users/61b6fa1ba83a7e37c8309756/private-files/cf0ae020-8b6c-11ef-b095-cf36210a4279-Screen_Shot_2024_10_16_at_10.14.27.png)
+![Ảnh chụp màn hình ứng dụng](https://storage.googleapis.com/mle-courses-prod/users/61b6fa1ba83a7e37c8309756/private-files/cf0ae020-8b6c-11ef-b095-cf36210a4279-Screen_Shot_2024_10_16_at_10.14.27.png)
 
-[Watch Video Demo](https://www.youtube.com/watch?v=VjVHAfFvnQM&feature=youtu.be)
+[Xem video demo](https://www.youtube.com/watch?v=VjVHAfFvnQM&feature=youtu.be)
 
-This project implements a **Retrieval-Augmented Generation (RAG)** pipeline. It allows users to upload data files (CSV, JSON, PDF, DOCX), store their content in a **Chroma vector store**, and interact with it through a chatbot powered by **Gemini** or **local open-source models** like those available through **OLLAMA**. The chatbot retrieves relevant information from the uploaded files and uses **LLMs** (Large Language Models) to enhance user queries, returning meaningful responses.
+Dự án này triển khai quy trình **RAG (Tạo nội dung có bổ sung thông tin từ tìm kiếm)**. Người dùng có thể tải lên các tệp dữ liệu (CSV, JSON, PDF, DOCX), lưu nội dung vào **kho vector Chroma**, và tương tác với dữ liệu thông qua chatbot sử dụng **Gemini** hoặc các mô hình nguồn mở cục bộ như các mô hình từ **OLLAMA**. Chatbot sẽ truy xuất thông tin liên quan từ các tệp đã tải lên và sử dụng **LLMs** (Mô hình ngôn ngữ lớn) để cải thiện câu hỏi của người dùng, trả về các phản hồi có ý nghĩa.
 
-## Features
-1. **Upload CSV, JSON, PDF, or DOCX files** – Users can upload files in various formats and choose which columns or sections to index for vector search.
-2. **Store and retrieve vector embeddings** using **Chroma** – Automatically store embeddings from uploaded files and retrieve relevant content for queries.
-3. **Interactive chatbot** – Use the **Gemini API** or local models to generate contextually enhanced responses.
-4. **Customizable LLM options** – Choose between cloud-based **Gemini** or local LLMs, including **OLLAMA** and a range of open-source models.
-5. **Flexible chunking options** – Users can apply chunking strategies like **Recursive Token Chunking**, **Agentic Chunking**, or skip chunking altogether.
+## Các tính năng
+1. **Tải lên các tệp CSV, JSON, PDF, hoặc DOCX** – Người dùng có thể tải tệp lên ở nhiều định dạng và chọn các cột hoặc phần để lập chỉ mục cho việc tìm kiếm dựa trên vector.
+2. **Lưu trữ và truy xuất vector embeddings** sử dụng **Chroma** – Tự động lưu trữ embeddings từ các tệp tải lên và truy xuất nội dung liên quan cho các truy vấn.
+3. **Chatbot tương tác** – Sử dụng **API Gemini** hoặc các mô hình cục bộ để tạo phản hồi nâng cao theo ngữ cảnh.
+4. **Tùy chọn LLM tùy chỉnh** – Chọn giữa **Gemini trên đám mây** hoặc các LLM cục bộ, bao gồm **OLLAMA** và nhiều mô hình nguồn mở.
+5. **Tùy chọn chunking linh hoạt** – Người dùng có thể áp dụng các chiến lược chunking như **Recursive Token Chunking**, **Agentic Chunking**, hoặc bỏ qua chunking.
 
-## Running the Application
+## Chạy ứng dụng
 
-### 1. Clone the repository
+### 1. Sao chép kho mã nguồn
 ```bash
 https://github.com/PineappleCuteCute/Drop-RAG.git
 cd drop-rag
 ```
 
-### 2. Install the required packages
+### 2. Cài đặt các gói cần thiết
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Streamlit app
+### 3. Chạy ứng dụng Streamlit
 ```bash
 streamlit run app.py
 ```
 
-The app will be accessible at `http://localhost:8501`.
+Ứng dụng sẽ có thể truy cập tại `http://localhost:8501`.
 
-## Usage Instructions
+## Hướng dẫn sử dụng
 
-### 1. **Upload Data**
-Upload a CSV, JSON, PDF, or DOCX file. You can select which column(s) to index for vector-based searches. 
+### 1. **Tải dữ liệu**
+Tải tệp CSV, JSON, PDF, hoặc DOCX lên. Bạn có thể chọn cột nào để lập chỉ mục cho các tìm kiếm dựa trên vector.
 
-### 2. **Embedding and Storage**
-The data is stored in the **Chroma vector store**, where vector embeddings are generated using models like `all-MiniLM-L6-v2` (for English) or `keepitreal/vietnamese-sbert` (for Vietnamese).
+### 2. **Embeddings và lưu trữ**
+Dữ liệu được lưu trong **kho vector Chroma**, nơi embeddings vector được tạo bằng các mô hình như `all-MiniLM-L6-v2` (dành cho tiếng Anh) hoặc `keepitreal/vietnamese-sbert` (dành cho tiếng Việt).
 
-### 3. **Choosing LLM**
-You can choose to use either:
-- **Gemini API**: Requires a **Gemini API key** to generate responses. Obtain the key [here](https://aistudio.google.com/app/apikey).
-- **Local LLMs via OLLAMA**: Use **OLLAMA** to run models such as `llama`, `gpt-j`, and other open-source models on your local machine.
+### 3. **Chọn LLM**
+Bạn có thể chọn sử dụng:
+- **Gemini API**: Yêu cầu **khóa API Gemini** để tạo phản hồi. Nhận khóa [tại đây](https://aistudio.google.com/app/apikey).
+- **LLM cục bộ qua OLLAMA**: Sử dụng **OLLAMA** để chạy các mô hình như `llama`, `gpt-j` và các mô hình nguồn mở khác trên máy tính cục bộ của bạn.
 
-### OLLAMA Model Options
+### Các tùy chọn mô hình OLLAMA
 
-Here’s a list of models available for use with **OLLAMA**, along with their corresponding identifiers:
+Dưới đây là danh sách các mô hình có sẵn cho **OLLAMA**, cùng với các định danh tương ứng:
 
-| Model Name                            | Model Size        | OLLAMA Identifier       |
+| Tên mô hình                           | Kích thước mô hình | Định danh OLLAMA        |
 |---------------------------------------|-------------------|-------------------------|
 | Llama 3.2 (3B - 2.0GB)                | 3B (2.0GB)        | `llama3.2`              |
 | Llama 3.2 (1B - 1.3GB)                | 1B (1.3GB)        | `llama3.2:1b`           |
@@ -73,21 +73,21 @@ Here’s a list of models available for use with **OLLAMA**, along with their co
 | LLaVA (7B - 4.5GB)                    | 7B (4.5GB)        | `llava`                 |
 | Solar (10.7B - 6.1GB)                 | 10.7B (6.1GB)     | `solar`                 |
 
-### 4. **Chatbot Interaction**
-After uploading your data and selecting the LLM, start interacting with the chatbot, which will retrieve and augment responses based on the stored data.
+### 4. **Tương tác với chatbot**
+Sau khi tải dữ liệu và chọn LLM, bạn có thể bắt đầu tương tác với chatbot, chatbot sẽ truy xuất và bổ sung phản hồi dựa trên dữ liệu đã lưu.
 
-### 5. **Chunking Options**
-Before querying the chatbot, users can choose from different chunking methods:
-- **No Chunking**: Use the full document without dividing it.
-- **Recursive Token Chunking**: Split documents into smaller sections based on token count.
-- **Semantic Chunking**: Group text by meaning, enhancing retrieval accuracy.
-- **Agentic Chunking**: Dynamically manage text chunks using an LLM-based agent.
+### 5. **Tùy chọn chunking**
+Trước khi truy vấn chatbot, người dùng có thể chọn từ các phương pháp chunking khác nhau:
+- **Không chia nhỏ**: Sử dụng toàn bộ tài liệu mà không chia thành phần nhỏ.
+- **Chia nhỏ theo số token**: Chia tài liệu thành các phần nhỏ dựa trên số lượng token.
+- **Chia nhỏ theo nghĩa**: Nhóm văn bản theo ý nghĩa, giúp cải thiện độ chính xác của việc truy xuất.
+- **Chia nhỏ động**: Quản lý các đoạn văn bản một cách động bằng cách sử dụng agent dựa trên LLM.
 
-## Notes
-- A **Gemini API key** is required if you opt for the **Gemini** model. 
-- For local model inference using **OLLAMA**, ensure **Docker** is installed to run the models locally.
+## Ghi chú
+- Cần có **khóa API Gemini** nếu bạn chọn mô hình **Gemini**.
+- Để suy luận mô hình cục bộ bằng **OLLAMA**, đảm bảo rằng **Docker** đã được cài đặt để chạy các mô hình cục bộ.
 
-## Troubleshooting
+## Khắc phục sự cố
 
-- If queries do not retrieve results, verify that you have selected the correct columns for indexing and that your embeddings are properly stored.
-- Ensure the API key is valid (if using Gemini) and that the vector store is initialized before using the chatbot.
+- Nếu truy vấn không trả về kết quả, hãy kiểm tra xem bạn đã chọn đúng cột để lập chỉ mục và embeddings đã được lưu trữ đúng cách.
+- Đảm bảo khóa API hợp lệ (nếu sử dụng Gemini) và kho vector đã được khởi tạo trước khi sử dụng chatbot.
