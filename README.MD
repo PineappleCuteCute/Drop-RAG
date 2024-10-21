@@ -19,7 +19,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** pipeline. It 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/bangoc123/drop-rag.git
+https://github.com/PineappleCuteCute/Drop-RAG.git
 cd drop-rag
 ```
 
